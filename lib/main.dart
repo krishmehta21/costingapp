@@ -18,13 +18,26 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(bodyLarge: TextStyle(color: Colors.grey.shade800)),
         buttonTheme: ButtonThemeData(buttonColor: Colors.lightBlueAccent),
       ),
-      initialRoute: '/boxdetails', // Set the initial route to HomePage
+      initialRoute: '/home', // Set the initial route to HomePage
       debugShowCheckedModeBanner: false,
       routes: {
         '/login': (context) => LoginPage(), // Route for login page
         '/home': (context) => HomePage(),
-        '/projectdetails' : (context) => ProjectDetails(), 
-        '/boxdetails' : (context) => BoxDetails()// Route for home page
+        '/boxdetails': (context) => BoxDetails(), // Route for box details
+      },
+      // Use onGenerateRoute for dynamic parameter passing
+      onGenerateRoute: (settings) {
+        if (settings.name == '/projectdetails') {
+          final args = settings.arguments as Map<String, String>;
+          return MaterialPageRoute(
+            builder: (context) => ProjectDetails(
+              clientName: args['clientName'] ?? 'Unknown',
+              businessDetails: args['businessDetails'] ?? 'Unknown',
+              industry: args['industry'] ?? 'Unknown',
+            ),
+          );
+        }
+        return null; // Handle undefined routes
       },
     );
   }

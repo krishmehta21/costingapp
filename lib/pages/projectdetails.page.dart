@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
 
 class ProjectDetails extends StatefulWidget {
+  final String clientName;
+  final String businessDetails;
+  final String industry;
+
+  ProjectDetails({
+    required this.clientName,
+    required this.businessDetails,
+    required this.industry,
+  });
+
   @override
   _ProjectDetailsState createState() => _ProjectDetailsState();
 }
@@ -48,6 +58,32 @@ class _ProjectDetailsState extends State<ProjectDetails> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Display Client Information
+              Text(
+                'Client Information:',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.indigo,
+                ),
+              ),
+              SizedBox(height: 10),
+              Text(
+                'Client Name: ${widget.clientName}',
+                style: TextStyle(fontSize: 16, color: Colors.black87),
+              ),
+              SizedBox(height: 5),
+              Text(
+                'Business Details: ${widget.businessDetails}',
+                style: TextStyle(fontSize: 16, color: Colors.black87),
+              ),
+              SizedBox(height: 5),
+              Text(
+                'Industry: ${widget.industry}',
+                style: TextStyle(fontSize: 16, color: Colors.black87),
+              ),
+              SizedBox(height: 30),
+
               // Box Type Dropdown
               Text(
                 'Select Box Type:',
@@ -72,7 +108,7 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                   );
                 }).toList(),
               ),
-              const SizedBox(height: 20), // Spacer
+              SizedBox(height: 20),
 
               // Packaging Accessories Dropdown
               Text(
@@ -98,9 +134,9 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                   );
                 }).toList(),
               ),
-              const SizedBox(height: 30), // Spacer for bottom section
+              SizedBox(height: 30),
 
-              // Display selected values at the bottom
+              // Display Selected Details
               Text(
                 'Selected Details:',
                 style: TextStyle(
@@ -109,39 +145,27 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                   color: Colors.indigo,
                 ),
               ),
-              const SizedBox(height: 10),
-              selectedBoxType != null
-                  ? Text(
-                      'Box Type: $selectedBoxType',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black87,
-                      ),
-                    )
-                  : Text(
-                      'Box Type: Not selected',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.red,
-                      ),
-                    ),
-              const SizedBox(height: 10),
-              selectedPackagingAccessory != null
-                  ? Text(
-                      'Packaging Accessory: $selectedPackagingAccessory',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black87,
-                      ),
-                    )
-                  : Text(
-                      'Packaging Accessory: Not selected',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.red,
-                      ),
-                    ),
-              const SizedBox(height: 30),
+              SizedBox(height: 10),
+              Text(
+                selectedBoxType != null
+                    ? 'Box Type: $selectedBoxType'
+                    : 'Box Type: Not selected',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: selectedBoxType != null ? Colors.black87 : Colors.red,
+                ),
+              ),
+              SizedBox(height: 10),
+              Text(
+                selectedPackagingAccessory != null
+                    ? 'Packaging Accessory: $selectedPackagingAccessory'
+                    : 'Packaging Accessory: Not selected',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: selectedPackagingAccessory != null ? Colors.black87 : Colors.red,
+                ),
+              ),
+              SizedBox(height: 30),
 
               // Navigation Buttons
               Row(
