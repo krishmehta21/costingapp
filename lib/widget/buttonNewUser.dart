@@ -9,28 +9,30 @@ class _ButtonNewUserState extends State<ButtonNewUser> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 40, right: 50, left: 200),
+      padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 20.0), // Uniform padding
       child: Container(
-        alignment: Alignment.bottomRight,
         height: 50,
-        width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(30),
           boxShadow: [
             BoxShadow(
-              color: Colors.blue,
-              blurRadius: 10.0, // has the effect of softening the shadow
-              spreadRadius: 1.0, // has the effect of extending the shadow
-              offset: Offset(
-                5.0, // horizontal, move right 10
-                5.0, // vertical, move down 10
-              ),
+              color: Colors.blueAccent.withOpacity(0.4),
+              blurRadius: 10.0, // Softens the shadow
+              spreadRadius: 2.0, // Extends the shadow
+              offset: Offset(4.0, 4.0), // Moves shadow diagonally
             ),
           ],
-            color: Colors.white, borderRadius: BorderRadius.circular(30)),
+        ),
         child: TextButton(
-          onPressed: (){
+          onPressed: () {
             Navigator.pop(context);
           },
+          style: TextButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30.0),
+            ),
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -38,10 +40,11 @@ class _ButtonNewUserState extends State<ButtonNewUser> {
                 'OK',
                 style: TextStyle(
                   color: Colors.lightBlueAccent,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w700,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
+              SizedBox(width: 8.0), // Adds spacing between the text and icon
               Icon(
                 Icons.arrow_forward,
                 color: Colors.lightBlueAccent,

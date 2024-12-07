@@ -9,17 +9,19 @@ class _SingUpState extends State<SingUp> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 60, left: 10),
+      padding: const EdgeInsets.only(top: 50, left: 10), // Adjust padding for better placement
       child: RotatedBox(
-          quarterTurns: -1,
-          child: Text(
-            'Sing up',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 38,
-              fontWeight: FontWeight.w900,
-            ),
-          )),
+        quarterTurns: -1, // Rotates the text 90 degrees counter-clockwise
+        child: Text(
+          'Sign Up',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 40, // Slightly larger font for better readability
+            fontWeight: FontWeight.bold,
+            letterSpacing: 2.0, // Adds spacing between letters for a modern look
+          ),
+        ),
+      ),
     );
   }
 }

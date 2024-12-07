@@ -10,36 +10,36 @@ class _FirstTimeState extends State<FirstTime> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 30, left: 30),
-      child: Container(
-        alignment: Alignment.topRight,
-        //color: Colors.red,
-        height: 20,
-        child: Row(
-          children: <Widget>[
-            Text(
-              'Your first time?',
+      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center, // Center-align content
+        children: <Widget>[
+          Text(
+            "New here?",
+            style: TextStyle(
+              fontSize: 16, // Slightly larger font for better readability
+              color: Colors.white70,
+            ),
+          ),
+          const SizedBox(width: 8), // Adjust spacing between text and button
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NewUser()),
+              );
+            },
+            child: Text(
+              "Sign Up",
               style: TextStyle(
-                fontSize: 12,
-                color: Colors.white70,
+                fontSize: 16,
+                fontWeight: FontWeight.bold, // Bold text for emphasis
+                color: Colors.lightBlueAccent,
+                decoration: TextDecoration.underline, // Adds a subtle underline
               ),
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => NewUser()));
-              },
-              child: Text(
-                'Sing up',
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.white,
-                ),
-                textAlign: TextAlign.right,
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

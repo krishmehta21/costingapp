@@ -1,36 +1,32 @@
 import 'package:flutter/material.dart';
 
-class ButtonLogin extends StatefulWidget {
-  @override
-  _ButtonLoginState createState() => _ButtonLoginState();
-}
+class ButtonLogin extends StatelessWidget {
+  final VoidCallback onPressed; // Pass in the callback for the login action
 
-class _ButtonLoginState extends State<ButtonLogin> {
+  ButtonLogin({required this.onPressed});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 40, right: 50, left: 200),
+      padding: const EdgeInsets.only(top: 40, left: 50, right: 50),
       child: Container(
-        alignment: Alignment.bottomRight,
+        alignment: Alignment.center,
         height: 50,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           boxShadow: const [
             BoxShadow(
               color: Colors.blue,
-              blurRadius: 10.0, // has the effect of softening the shadow
-              spreadRadius: 1.0, // has the effect of extending the shadow
-              offset: Offset(
-                5.0, // horizontal, move right 10
-                5.0, // vertical, move down 10
-              ),
+              blurRadius: 10.0,
+              spreadRadius: 1.0,
+              offset: Offset(5.0, 5.0),
             ),
           ],
           color: Colors.white,
           borderRadius: BorderRadius.circular(30),
         ),
         child: TextButton(
-          onPressed: () {},
+          onPressed: onPressed, // Handle the onPressed function
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const <Widget>[

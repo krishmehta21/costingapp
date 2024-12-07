@@ -19,28 +19,45 @@ class _NewUserState extends State<NewUser> {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [Colors.blueGrey, Colors.lightBlueAccent]),
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Colors.indigo.shade900, Colors.lightBlueAccent],
+          ),
         ),
-        child: ListView(
-          children: <Widget>[
-            Column(
+        child: Center(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                // Top Section: Sign-up Icon/Text
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     SingUp(),
+                    const SizedBox(width: 10), // Add spacing between widgets
                     TextNew(),
                   ],
                 ),
-                NewNome(),
+                const SizedBox(height: 30), // Space between sections
+
+                // Input Fields: Name, Email, Password
+                NewName(),
+                const SizedBox(height: 20), // Space between input fields
                 NewEmail(),
+                const SizedBox(height: 20),
                 PasswordInput(),
+                const SizedBox(height: 30), // Space before button
+
+                // Register Button
                 ButtonNewUser(),
+                const SizedBox(height: 20), // Space before "Already a user"
+
+                // Already a User Section
                 UserOld(),
               ],
             ),
-          ],
+          ),
         ),
       ),
     );
