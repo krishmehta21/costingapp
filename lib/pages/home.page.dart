@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'projectdetails.page.dart'; // Ensure the path is correct
 
 class HomePage extends StatelessWidget {
   @override
@@ -101,6 +102,24 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
+            Spacer(), // Push the Next button to the bottom
+            Align(
+              alignment: Alignment.center,
+              child: ElevatedButton(
+                onPressed: () {
+                  // Navigate to ProjectDetails using named route
+                  Navigator.pushNamed(context, '/projectdetails');
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                  backgroundColor: Colors.indigo.shade900,
+                ),
+                child: Text(
+                  'Next',
+                  style: TextStyle(fontSize: 16, color: Colors.white),
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -109,5 +128,10 @@ class HomePage extends StatelessWidget {
 }
 
 void main() => runApp(MaterialApp(
-  home: HomePage(),
-));
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomePage(),
+        '/projectdetails': (context) => ProjectDetails(),
+      },
+    ));

@@ -35,6 +35,12 @@ class _ProjectDetailsState extends State<ProjectDetails> {
       appBar: AppBar(
         title: Text('Project Details'),
         backgroundColor: Colors.indigo,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context); // Go back to the previous page
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -135,6 +141,40 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                         color: Colors.red,
                       ),
                     ),
+              const SizedBox(height: 30),
+
+              // Navigation Buttons
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context); // Back to the previous page
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.grey,
+                      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                    ),
+                    child: Text(
+                      'Back',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/boxdetails'); // Navigate to BoxDetails
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.indigo,
+                      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                    ),
+                    child: Text(
+                      'Next',
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
