@@ -1,3 +1,4 @@
+import 'package:costing/pages/boxdetails.page.dart';
 import 'package:costing/pages/projectdetails.page.dart';
 import 'package:flutter/material.dart';
 import 'package:costing/pages/login.page.dart'; // Ensure correct path
@@ -17,12 +18,13 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(bodyLarge: TextStyle(color: Colors.grey.shade800)),
         buttonTheme: ButtonThemeData(buttonColor: Colors.lightBlueAccent),
       ),
-      initialRoute: '/projectdetails', // Set the initial route to HomePage
+      initialRoute: '/boxdetails', // Set the initial route to HomePage
       debugShowCheckedModeBanner: false,
       routes: {
         '/login': (context) => LoginPage(), // Route for login page
         '/home': (context) => HomePage(),
-        '/projectdetails' : (context) => ProjectDetails() // Route for home page
+        '/projectdetails' : (context) => ProjectDetails(), 
+        '/boxdetails' : (context) => BoxDetails()// Route for home page
       },
     );
   }
